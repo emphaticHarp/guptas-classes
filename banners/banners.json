@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "image": "banner3.jpg",
+    "title": "Master Your Skills",
+    "subtitle": "Unlock your potential with expert-led courses designed for success"
+  },
+  {
+    "id": 2,
+    "image": "banner4.jpg",
+    "title": "Learn Anywhere, Anytime",
+    "subtitle": "Flexible learning paths that fit your lifestyle and goals"
+  },
+  {
+    "id": 3,
+    "image": "banner5.jpg",
+    "title": "Join Thousands of Students",
+    "subtitle": "Transform your future with Gupta's Classes today"
+  },
+  {
+    "id": 4,
+    "image": "banner1.jpg",
+    "title": "Excellence in Education",
+    "subtitle": "Start your journey to success with Gupta's Classes"
+  },
+  {
+    "id": 5,
+    "image": "banner2.jpg",
+    "title": "Achieve Your Dreams",
+    "subtitle": "Quality education that makes a difference"
+  }
+]
