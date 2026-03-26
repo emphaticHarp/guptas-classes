@@ -47,50 +47,50 @@ export default function Courses() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200 py-20 md:py-32">
+      <section className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200 py-12 md:py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-6 mb-6">
-            <img src="/logo.jpg" alt="Gupta's Classes Logo" className="h-16 w-auto rounded-lg shadow-md" />
+          <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
+            <img src="/logo.jpg" alt="Gupta's Classes Logo" className="h-14 md:h-16 w-auto rounded-lg shadow-md" />
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900">Our Courses</h1>
-              <p className="text-lg text-gray-600 font-light mt-2">Comprehensive Programs for Academic Excellence</p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900">Our Courses</h1>
+              <p className="text-base md:text-lg text-gray-600 font-light mt-1 md:mt-2">Comprehensive Programs for Academic Excellence</p>
             </div>
           </div>
-          <p className="text-2xl text-gray-700 font-light leading-relaxed max-w-3xl">
+          <p className="text-lg md:text-2xl text-gray-700 font-light leading-relaxed max-w-3xl">
             Tailored educational programs for Class 6 to Class 12, designed to build strong foundations and achieve academic excellence
           </p>
         </div>
       </section>
 
       {/* Courses Grid */}
-      <section className="py-16 md:py-24 bg-gray-50 border-b border-gray-200">
+      <section className="py-12 md:py-16 lg:py-24 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title text-center">Choose Your Course</h2>
           <p className="section-subtitle text-center">
             Tailored programs for every academic level
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {courses.map((course, idx) => (
               <div
                 key={idx}
                 className="card-base border border-gray-300 hover:border-gray-400 transition-colors bg-white"
               >
                 {/* Class Header */}
-                <div className="mb-6 pb-6 border-b border-gray-200">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{course.class}</h3>
-                  <p className="text-gray-900 font-semibold text-lg">{course.fee}</p>
+                <div className="mb-4 md:mb-6 pb-4 md:pb-6 border-b border-gray-200">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-1 md:mb-2">{course.class}</h3>
+                  <p className="text-gray-900 font-semibold text-base md:text-lg">{course.fee}</p>
                 </div>
 
                 {/* Subjects */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2 text-sm">
-                    <BookOpen size={18} className="text-gray-700" />
+                <div className="mb-4 md:mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-2 md:mb-3 flex items-center gap-2 text-xs md:text-sm">
+                    <BookOpen size={16} className="text-gray-700" />
                     Subjects
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1 md:space-y-2">
                     {course.subjects.map((subject, sidx) => (
-                      <li key={sidx} className="text-gray-700 flex items-center gap-2 text-sm">
+                      <li key={sidx} className="text-gray-700 flex items-center gap-2 text-xs md:text-sm">
                         <span className="w-2 h-2 bg-gray-700 rounded-full"></span>
                         {subject}
                       </li>
@@ -99,30 +99,30 @@ export default function Courses() {
                 </div>
 
                 {/* Timing & Batch */}
-                <div className="mb-6 space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Clock size={18} className="text-gray-700 mt-1 flex-shrink-0" />
+                <div className="mb-4 md:mb-6 space-y-2 md:space-y-3">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <Clock size={16} className="text-gray-700 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-gray-600">Timing</p>
-                      <p className="text-gray-900 font-medium text-sm">{course.timing}</p>
+                      <p className="text-gray-900 font-medium text-xs md:text-sm">{course.timing}</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Users size={18} className="text-gray-700 mt-1 flex-shrink-0" />
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <Users size={16} className="text-gray-700 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-gray-600">Batch Size</p>
-                      <p className="text-gray-900 font-medium text-sm">{course.batchSize}</p>
+                      <p className="text-gray-900 font-medium text-xs md:text-sm">{course.batchSize}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Highlights */}
-                <div className="mb-6 pb-6 border-b border-gray-200">
-                  <h4 className="font-semibold text-gray-900 mb-3 text-sm">What's Included</h4>
-                  <ul className="space-y-2">
+                <div className="mb-4 md:mb-6 pb-4 md:pb-6 border-b border-gray-200">
+                  <h4 className="font-semibold text-gray-900 mb-2 md:mb-3 text-xs md:text-sm">What's Included</h4>
+                  <ul className="space-y-1 md:space-y-2">
                     {course.highlights.map((highlight, hidx) => (
-                      <li key={hidx} className="text-gray-700 flex items-center gap-2 text-sm">
-                        <CheckCircle size={16} className="text-gray-700 flex-shrink-0" />
+                      <li key={hidx} className="text-gray-700 flex items-center gap-2 text-xs md:text-sm">
+                        <CheckCircle size={14} className="text-gray-700 flex-shrink-0" />
                         {highlight}
                       </li>
                     ))}
@@ -140,11 +140,11 @@ export default function Courses() {
       </section>
 
       {/* Course Features */}
-      <section className="py-16 md:py-24 bg-white border-b border-gray-200">
+      <section className="py-12 md:py-16 lg:py-24 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title text-center">What Every Course Includes</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               {
                 icon: '📚',
@@ -188,8 +188,8 @@ export default function Courses() {
               },
             ].map((feature, idx) => (
               <div key={idx} className="card-base text-center">
-                <div className="text-4xl mb-3">{feature.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-2 text-sm">{feature.title}</h3>
+                <div className="text-3xl md:text-4xl mb-2 md:mb-3">{feature.icon}</div>
+                <h3 className="font-bold text-gray-900 mb-1 md:mb-2 text-xs md:text-sm">{feature.title}</h3>
                 <p className="text-xs text-gray-600">{feature.desc}</p>
               </div>
             ))}
@@ -198,11 +198,11 @@ export default function Courses() {
       </section>
 
       {/* Flexible Options */}
-      <section className="py-16 md:py-24 bg-gray-50 border-b border-gray-200">
+      <section className="py-12 md:py-16 lg:py-24 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title text-center">Flexible Learning Options</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: 'Regular Batches',
@@ -221,11 +221,11 @@ export default function Courses() {
               },
             ].map((option, idx) => (
               <div key={idx} className="card-base">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{option.title}</h3>
-                <p className="text-gray-700 mb-4 text-sm">{option.desc}</p>
-                <ul className="space-y-2">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">{option.title}</h3>
+                <p className="text-gray-700 mb-3 md:mb-4 text-xs md:text-sm">{option.desc}</p>
+                <ul className="space-y-1 md:space-y-2">
                   {option.features.map((feature, fidx) => (
-                    <li key={fidx} className="text-gray-700 flex items-center gap-2 text-sm">
+                    <li key={fidx} className="text-gray-700 flex items-center gap-2 text-xs md:text-sm">
                       <span className="w-2 h-2 bg-gray-700 rounded-full"></span>
                       {feature}
                     </li>
@@ -238,15 +238,15 @@ export default function Courses() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gray-900 text-white">
+      <section className="py-12 md:py-16 lg:py-24 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6">
             Ready to Start Your Learning Journey?
           </h2>
-          <p className="text-lg text-gray-300 mb-8">
+          <p className="text-base md:text-lg text-gray-300 mb-6 md:mb-8">
             Choose a course and enroll today. Limited seats available!
           </p>
-          <Link href="/contact" className="btn-primary bg-white text-gray-900 hover:bg-gray-100 inline-block">
+          <Link href="/contact" className="btn-primary bg-white text-gray-900 hover:bg-gray-100 inline-block text-sm md:text-base">
             Enroll Now
           </Link>
         </div>

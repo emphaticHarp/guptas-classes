@@ -11,51 +11,51 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200 py-20 md:py-40">
+      <section className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200 py-12 md:py-32 lg:py-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="animate-fade-in-up">
-              <div className="mb-8 flex items-center gap-4">
-                <img src="/logo.jpg" alt="Gupta's Classes Logo" className="h-20 w-auto rounded-lg shadow-md" />
+              <div className="mb-6 md:mb-8 flex items-center gap-3 md:gap-4">
+                <img src="/logo.jpg" alt="Gupta's Classes Logo" className="h-14 md:h-20 w-auto rounded-lg shadow-md" />
                 <div>
-                  <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
+                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
                     Gupta's Classes
                   </h1>
-                  <p className="text-lg text-gray-600 font-light mt-2">Excellence in Education Since 2014</p>
+                  <p className="text-sm md:text-lg text-gray-600 font-light mt-1">Excellence in Education Since 2014</p>
                 </div>
               </div>
-              <p className="text-2xl md:text-3xl text-gray-700 mb-6 font-light leading-relaxed">
+              <p className="text-lg md:text-2xl lg:text-3xl text-gray-700 mb-4 md:mb-6 font-light leading-relaxed">
                 Building Strong Foundations for Academic Success
               </p>
-              <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-10 leading-relaxed">
                 Personalized education with expert guidance. Join 500+ successful students who have transformed their academic journey with our concept-based learning approach and dedicated mentorship.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/contact" className="btn-primary bg-gray-900 text-white hover:bg-gray-800 text-lg px-8 py-4">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
+                <Link href="/contact" className="btn-primary bg-gray-900 text-white hover:bg-gray-800 text-base md:text-lg px-6 md:px-8 py-3 md:py-4">
                   Start Your Journey
                 </Link>
                 <a
                   href="https://wa.me/919101234567?text=Hello! I am interested in joining Gupta's Classes."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary border-gray-300 text-gray-900 hover:bg-gray-50 text-lg px-8 py-4"
+                  className="btn-secondary border-gray-300 text-gray-900 hover:bg-gray-50 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
                 >
                   Chat on WhatsApp
                 </a>
               </div>
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+              <div className="grid grid-cols-3 gap-4 md:gap-6 pt-6 md:pt-8 border-t border-gray-200">
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">500+</p>
-                  <p className="text-sm text-gray-600 mt-1">Students Taught</p>
+                  <p className="text-2xl md:text-3xl font-bold text-gray-900">500+</p>
+                  <p className="text-xs md:text-sm text-gray-600 mt-1">Students Taught</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">95%</p>
-                  <p className="text-sm text-gray-600 mt-1">Pass Rate</p>
+                  <p className="text-2xl md:text-3xl font-bold text-gray-900">95%</p>
+                  <p className="text-xs md:text-sm text-gray-600 mt-1">Pass Rate</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">10+</p>
-                  <p className="text-sm text-gray-600 mt-1">Years Experience</p>
+                  <p className="text-2xl md:text-3xl font-bold text-gray-900">10+</p>
+                  <p className="text-xs md:text-sm text-gray-600 mt-1">Years Experience</p>
                 </div>
               </div>
             </div>
@@ -78,17 +78,17 @@ export default function Home() {
       </section>
 
       {/* Logo & Institution Section */}
-      <section className="py-12 md:py-16 bg-gray-50 border-b border-gray-200">
+      <section className="py-8 md:py-12 lg:py-16 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Gupta's Classes</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Gupta's Classes</h3>
+              <p className="text-gray-600 text-xs md:text-sm">
                 Established in 2014 | Trusted by 500+ Students | 95% Pass Rate
               </p>
             </div>
             <div className="flex-1 flex justify-center md:justify-end">
-              <img src="/logo.jpg" alt="Gupta's Classes Official Logo" className="h-24 w-auto rounded-lg shadow-md" />
+              <img src="/logo.jpg" alt="Gupta's Classes Official Logo" className="h-20 md:h-24 w-auto rounded-lg shadow-md" />
             </div>
           </div>
         </div>
@@ -98,16 +98,16 @@ export default function Home() {
       <BrandTicker />
 
       {/* Teacher Highlight Section */}
-      <section className="py-20 md:py-32 bg-white border-b border-gray-200">
+      <section className="py-12 md:py-20 lg:py-32 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="section-title">Meet Your Educator</h2>
             <p className="section-subtitle">
               Learn from an experienced and dedicated educator with proven track record
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             {/* Experience Card */}
             <div className="card-base text-center animate-fade-in-up hover:shadow-lg transition-shadow">
               <div className="text-6xl mb-6">📚</div>
@@ -150,23 +150,23 @@ export default function Home() {
           </div>
 
           {/* Teacher Bio */}
-          <div className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-12 shadow-md border border-gray-200">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-8 md:p-12 shadow-md border border-gray-200">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
               <div>
                 <h4 className="text-lg font-bold text-gray-900 mb-3">About Diptanu Gupta</h4>
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
                   Diptanu Gupta is a passionate educator with over 10 years of dedicated experience in teaching. With a deep commitment to student success, he has helped hundreds of students achieve their academic goals through personalized attention and concept-based learning.
                 </p>
               </div>
               <div>
                 <h4 className="text-lg font-bold text-gray-900 mb-3">Teaching Philosophy</h4>
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
                   His teaching philosophy centers on understanding each student's unique learning style and building strong foundations that lead to long-term academic success. He believes in making education engaging and meaningful.
                 </p>
               </div>
               <div>
                 <h4 className="text-lg font-bold text-gray-900 mb-3">Achievements</h4>
-                <ul className="text-gray-700 text-sm space-y-2">
+                <ul className="text-gray-700 text-xs md:text-sm space-y-2">
                   <li>✓ Recognized as Best Educator in Agartala</li>
                   <li>✓ 4.9/5 average rating from students</li>
                   <li>✓ 20-30% average grade improvement</li>
@@ -179,16 +179,16 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 md:py-32 bg-gray-50 border-b border-gray-200">
+      <section className="py-12 md:py-20 lg:py-32 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="section-title">Why Choose Gupta's Classes?</h2>
             <p className="section-subtitle">
               Discover what makes us the preferred choice for quality education
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
             {[
               {
                 icon: '👨‍🏫',

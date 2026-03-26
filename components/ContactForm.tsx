@@ -133,7 +133,7 @@ export default function ContactForm() {
           required
           aria-required="true"
           aria-label="Full name"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-base"
           tabIndex={0}
         />
       </div>
@@ -153,7 +153,7 @@ export default function ContactForm() {
           required
           aria-required="true"
           aria-label="Email address"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-base"
           tabIndex={0}
         />
       </div>
@@ -173,7 +173,7 @@ export default function ContactForm() {
           required
           aria-required="true"
           aria-label="Phone number"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-base"
           tabIndex={0}
         />
       </div>
@@ -189,7 +189,7 @@ export default function ContactForm() {
           value={formData.class}
           onChange={handleChange}
           aria-label="Class or level"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-base"
           tabIndex={0}
         >
           <option value="">Select your class</option>
@@ -215,7 +215,7 @@ export default function ContactForm() {
           aria-required="true"
           aria-label="Message"
           rows={5}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none text-base"
           tabIndex={0}
         />
         <p className="text-xs text-gray-500 mt-1">
