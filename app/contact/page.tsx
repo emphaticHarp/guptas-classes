@@ -40,7 +40,7 @@ export default function Contact() {
               <div className="text-4xl md:text-5xl mb-3 md:mb-4">📞</div>
               <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Phone</h3>
               <p className="text-gray-700 text-xs md:text-sm">
-                +91 XXXXXXXXXX
+                +91 7005288084
               </p>
               <p className="text-xs text-gray-600 mt-2">
                 Available Mon-Sat, 10 AM - 8 PM
@@ -112,7 +112,7 @@ export default function Contact() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/919101234567?text=Hello! I am interested in joining Gupta's Classes."
+                href="https://api.whatsapp.com/send?phone=917005288084&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzQ2MTMwNTYsInBob25lIjoiOTE3MDA1Mjg4MDg0IiwidGV4dCI6IiIsImNvbnRleHQiOiJBZmpBOFZNQ2NDWG84bUFObmtmcktnZ2dJWFlheC1IZWZ5ZllYNjJIQ0hRdEFqRW42Ull1bUZ0ckpqT1pUWXVpSGlkWXM4MVprSXZmam1MTlhZbVk3dElncGFXdEF3NmF4M2Y5YnNYMnp6ZTdfZEFpU1o3cjV5YzVUQWw0UjVEbG1PWmRLMkNncE15UUlaTkRYdyIsInNvdXJjZSI6IiIsImFwcCI6ImZhY2Vib29rIn0.6ISvQtHT90ALt_-_Wtwy64LnAtGZzJkJtrifvF5hKXh_jLj8oxwhp0MAmPFlHXgzlmkMwP1-ANglyOD9OPU3vQ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-green-600 hover:bg-green-700 text-white rounded-md p-6 md:p-8 text-center mb-6 md:mb-8 transition-colors"
@@ -172,7 +172,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <a
-              href="https://wa.me/919101234567?text=Hello! I am interested in joining Gupta's Classes."
+              href="https://api.whatsapp.com/send?phone=917005288084&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzQ2MTMwNTYsInBob25lIjoiOTE3MDA1Mjg4MDg0IiwidGV4dCI6IiIsImNvbnRleHQiOiJBZmpBOFZNQ2NDWG84bUFObmtmcktnZ2dJWFlheC1IZWZ5ZllYNjJIQ0hRdEFqRW42Ull1bUZ0ckpqT1pUWXVpSGlkWXM4MVprSXZmam1MTlhZbVk3dElncGFXdEF3NmF4M2Y5YnNYMnp6ZTdfZEFpU1o3cjV5YzVUQWw0UjVEbG1PWmRLMkNncE15UUlaTkRYdyIsInNvdXJjZSI6IiIsImFwcCI6ImZhY2Vib29rIn0.6ISvQtHT90ALt_-_Wtwy64LnAtGZzJkJtrifvF5hKXh_jLj8oxwhp0MAmPFlHXgzlmkMwP1-ANglyOD9OPU3vQ"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 md:px-6 py-2 md:py-3 border border-white text-white rounded-md font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm md:text-base"
@@ -180,7 +180,7 @@ export default function Contact() {
               Chat on WhatsApp
             </a>
             <a
-              href="tel:+919101234567"
+              href="tel:+917005288084"
               className="px-4 md:px-6 py-2 md:py-3 border border-white text-white rounded-md font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 text-sm md:text-base"
             >
               Call Us

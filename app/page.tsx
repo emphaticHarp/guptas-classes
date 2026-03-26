@@ -36,7 +36,7 @@ export default function Home() {
                   Start Your Journey
                 </Link>
                 <a
-                  href="https://wa.me/919101234567?text=Hello! I am interested in joining Gupta's Classes."
+                  href="https://api.whatsapp.com/send?phone=917005288084&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzQ2MTMwNTYsInBob25lIjoiOTE3MDA1Mjg4MDg0IiwidGV4dCI6IiIsImNvbnRleHQiOiJBZmpBOFZNQ2NDWG84bUFObmtmcktnZ2dJWFlheC1IZWZ5ZllYNjJIQ0hRdEFqRW42Ull1bUZ0ckpqT1pUWXVpSGlkWXM4MVprSXZmam1MTlhZbVk3dElncGFXdEF3NmF4M2Y5YnNYMnp6ZTdfZEFpU1o3cjV5YzVUQWw0UjVEbG1PWmRLMkNncE15UUlaTkRYdyIsInNvdXJjZSI6IiIsImFwcCI6ImZhY2Vib29rIn0.6ISvQtHT90ALt_-_Wtwy64LnAtGZzJkJtrifvF5hKXh_jLj8oxwhp0MAmPFlHXgzlmkMwP1-ANglyOD9OPU3vQ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary border-gray-300 text-gray-900 hover:bg-gray-50 text-base md:text-lg px-6 md:px-8 py-3 md:py-4"
@@ -375,7 +375,7 @@ export default function Home() {
               Enroll Now <ArrowRight size={24} />
             </Link>
             <a
-              href="https://wa.me/919101234567?text=Hello! I am interested in joining Gupta's Classes."
+              href="https://api.whatsapp.com/send?phone=917005288084&token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNSJ9.eyJleHAiOjE3NzQ2MTMwNTYsInBob25lIjoiOTE3MDA1Mjg4MDg0IiwidGV4dCI6IiIsImNvbnRleHQiOiJBZmpBOFZNQ2NDWG84bUFObmtmcktnZ2dJWFlheC1IZWZ5ZllYNjJIQ0hRdEFqRW42Ull1bUZ0ckpqT1pUWXVpSGlkWXM4MVprSXZmam1MTlhZbVk3dElncGFXdEF3NmF4M2Y5YnNYMnp6ZTdfZEFpU1o3cjV5YzVUQWw0UjVEbG1PWmRLMkNncE15UUlaTkRYdyIsInNvdXJjZSI6IiIsImFwcCI6ImZhY2Vib29rIn0.6ISvQtHT90ALt_-_Wtwy64LnAtGZzJkJtrifvF5hKXh_jLj8oxwhp0MAmPFlHXgzlmkMwP1-ANglyOD9OPU3vQ"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 border-2 border-white text-white rounded-md font-medium hover:bg-white hover:text-gray-900 transition-all duration-300 inline-flex items-center justify-center gap-2 text-lg"
@@ -384,7 +384,7 @@ export default function Home() {
             </a>
           </div>
           <p className="text-gray-400 text-sm mt-8">
-            📞 Call us: +91 XXXXXXXXXX | 📧 Email: info@guptasclasses.com
+            📞 Call us: +91 7005288084 | 📧 Email: info@guptasclasses.com
           </p>
         </div>
       </section>
