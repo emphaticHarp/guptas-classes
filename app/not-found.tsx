@@ -58,13 +58,13 @@ export default function NotFound() {
             <Home size={20} />
             Go Home
           </Link>
-          <button
-            onClick={() => window.history.back()}
+          <Link
+            href="/"
             className="flex items-center justify-center gap-2 border border-gray-300 text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium"
           >
             <ArrowLeft size={20} />
             Go Back
-          </button>
+          </Link>
         </div>
 
         {/* Footer Note */}

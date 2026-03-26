@@ -1,39 +1,9 @@
 'use client';
 
-import { Mail, Phone, MapPin } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import { analytics } from '@/lib/analytics';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    class: '',
-    message: '',
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real app, you'd send this to a backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: '', phone: '', email: '', class: '', message: '' });
-      setSubmitted(false);
-    }, 3000);
-  };
-
   return (
     <div className="w-full">
       {/* Hero Section */}
