@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import StudentOnboarding from '@/components/StudentOnboarding';
 
 interface User {
   id: string;
@@ -9,6 +10,7 @@ interface User {
   phone: string;
   role: 'student' | 'teacher' | 'admin';
   class?: string;
+  isVerified?: boolean;
 }
 
 interface AuthContextType {
@@ -19,6 +21,7 @@ interface AuthContextType {
   signup: (data: any) => Promise<void>;
   logout: () => Promise<void>;
   isAuthenticated: boolean;
+  showOnboarding: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -27,6 +30,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   // Check if user is already logged in on mount
   useEffect(() => {
@@ -36,8 +40,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const storedUser = localStorage.getItem('user');
 
         if (storedToken && storedUser) {
+          const parsedUser = JSON.parse(storedUser);
           setToken(storedToken);
-          setUser(JSON.parse(storedUser));
+          setUser(parsedUser);
+
+          // Check if student needs onboarding
+          if (parsedUser.role === 'student' && !parsedUser.class) {
+            setShowOnboarding(true);
+          }
         }
       } catch (error) {
         console.error('Auth check failed:', error);
@@ -68,6 +78,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(data.user);
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
+
+      // Show onboarding for new students without enrollment
+      if (data.user.role === 'student' && !data.user.class) {
+        setTimeout(() => {
+          setShowOnboarding(true);
+        }, 500);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -92,6 +109,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setUser(data.user);
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('user', JSON.stringify(data.user));
+
+      // Show onboarding for new students
+      if (data.user.role === 'student') {
+        setTimeout(() => {
+          setShowOnboarding(true);
+        }, 500);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -103,6 +127,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await fetch('/api/auth/logout', { method: 'POST' });
       setUser(null);
       setToken(null);
+      setShowOnboarding(false);
       localStorage.removeItem('authToken');
       localStorage.removeItem('user');
     } finally {
@@ -120,8 +145,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signup,
         logout,
         isAuthenticated: !!user,
+        showOnboarding,
       }}
     >
+      {showOnboarding && user?.role === 'student' && <StudentOnboarding />}
       {children}
     </AuthContext.Provider>
   );
