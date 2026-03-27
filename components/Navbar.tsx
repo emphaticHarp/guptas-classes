@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Phone, Mail, MapPin, Clock, LogOut, User, Settings, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Clock, LogOut, User, Settings, ChevronDown, BookOpen, BarChart3, Users, FileText, Bell, HelpCircle, Shield } from 'lucide-react';
 import { AuthModal } from './application/modals/auth-modal';
 import { useAuth } from '@/lib/auth-context';
 import { toast } from 'sonner';
@@ -19,6 +19,41 @@ export default function Navbar() {
     { href: '/courses', label: 'Courses' },
     { href: '/contact', label: 'Contact' },
   ];
+
+  // Student menu items
+  const studentMenuItems = [
+    { icon: User, label: 'My Profile', href: '/student/dashboard' },
+    { icon: HelpCircle, label: 'Help & Support', href: '/student/support' },
+    { icon: Settings, label: 'Settings', href: '/student/settings' },
+  ];
+
+  // Teacher menu items
+  const teacherMenuItems = [
+    { icon: User, label: 'My Profile', href: '/teacher/dashboard' },
+    { icon: HelpCircle, label: 'Help & Support', href: '/teacher/support' },
+    { icon: Settings, label: 'Settings', href: '/teacher/settings' },
+  ];
+
+  // Admin menu items
+  const adminMenuItems = [
+    { icon: User, label: 'My Profile', href: '/admin/dashboard' },
+    { icon: HelpCircle, label: 'Help & Support', href: '/admin/support' },
+    { icon: Settings, label: 'Settings', href: '/admin/settings' },
+  ];
+
+  const getMenuItems = () => {
+    if (!user) return [];
+    switch (user.role) {
+      case 'student':
+        return studentMenuItems;
+      case 'teacher':
+        return teacherMenuItems;
+      case 'admin':
+        return adminMenuItems;
+      default:
+        return [];
+    }
+  };
 
   // Close profile dropdown when clicking outside
   useEffect(() => {
@@ -129,11 +164,11 @@ export default function Navbar() {
                   {/* Profile Dropdown */}
                   {isProfileOpen && (
                     <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 z-50 animate-in fade-in slide-in-from-top-2">
-                      {/* User Info */}
-                      <div className="px-4 py-3 border-b border-gray-200">
+                      {/* User Info Header */}
+                      <div className="px-4 py-4 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
                         <p className="font-semibold text-gray-900 text-sm">{user.name}</p>
                         <p className="text-xs text-gray-600">{user.email}</p>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-gray-500 mt-2">
                           <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 rounded capitalize text-xs font-medium">
                             {user.role}
                           </span>
@@ -142,22 +177,17 @@ export default function Navbar() {
 
                       {/* Menu Items */}
                       <div className="py-2">
-                        <Link
-                          href="/profile"
-                          className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 text-sm transition-colors"
-                          onClick={() => setIsProfileOpen(false)}
-                        >
-                          <User size={16} />
-                          <span>My Profile</span>
-                        </Link>
-                        <Link
-                          href="/settings"
-                          className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 text-sm transition-colors"
-                          onClick={() => setIsProfileOpen(false)}
-                        >
-                          <Settings size={16} />
-                          <span>Settings</span>
-                        </Link>
+                        {getMenuItems().map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 text-sm transition-colors"
+                            onClick={() => setIsProfileOpen(false)}
+                          >
+                            <item.icon size={16} className="text-gray-500" />
+                            <span>{item.label}</span>
+                          </Link>
+                        ))}
                       </div>
 
                       {/* Logout */}
@@ -223,27 +253,25 @@ export default function Navbar() {
                         <p className="text-xs text-gray-600">{user.email}</p>
                       </div>
                     </div>
-                    <Link
-                      href="/profile"
-                      className="block px-4 py-2 text-gray-700 hover:bg-white text-sm rounded-md transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      My Profile
-                    </Link>
-                    <Link
-                      href="/settings"
-                      className="block px-4 py-2 text-gray-700 hover:bg-white text-sm rounded-md transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Settings
-                    </Link>
+                    {getMenuItems().map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-white text-sm rounded-md transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <item.icon size={16} />
+                        {item.label}
+                      </Link>
+                    ))}
                     <button
                       onClick={() => {
                         handleLogout();
                         setIsOpen(false);
                       }}
-                      className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 text-sm rounded-md transition-colors"
+                      className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 text-sm rounded-md transition-colors flex items-center gap-3"
                     >
+                      <LogOut size={16} />
                       Logout
                     </button>
                   </div>
