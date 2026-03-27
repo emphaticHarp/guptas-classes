@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { X } from 'lucide-react';
 import { toast } from 'sonner';
 import { analytics } from '@/lib/analytics';
+import { useAuth } from '@/lib/auth-context';
 import { ForgotPasswordModal } from './forgot-password-modal';
 import './auth-modal.css';
 
@@ -14,6 +15,7 @@ interface AuthModalProps {
 }
 
 export function AuthModal({ buttonText = 'Enroll Now', buttonClassName = '', adImage = '/logo.jpg' }: AuthModalProps) {
+  const { login, signup, isLoading } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<'login' | 'signup'>('login');
   const [showForgotPassword, setShowForgotPassword] = useState(false);
@@ -21,10 +23,13 @@ export function AuthModal({ buttonText = 'Enroll Now', buttonClassName = '', adI
     email: '',
     password: '',
     confirmPassword: '',
-    fullName: '',
+    name: '',
+    phone: '',
+    role: 'student',
+    class: '9-10',
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -32,35 +37,68 @@ export function AuthModal({ buttonText = 'Enroll Now', buttonClassName = '', adI
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', { tab: activeTab, data: formData });
     
-    // Track analytics
-    analytics.trackEvent('auth_form_submit', 'conversion', activeTab);
-    
-    if (activeTab === 'login') {
-      toast.success('Login Successful', {
-        description: 'Welcome back! You have been logged in successfully.',
+    try {
+      analytics.trackEvent('auth_form_submit', 'conversion', activeTab);
+
+      if (activeTab === 'login') {
+        await login(formData.email, formData.password);
+        toast.success('Login Successful', {
+          description: 'Welcome back! You have been logged in successfully.',
+        });
+        analytics.trackEvent('login_success', 'conversion', 'auth-modal');
+      } else {
+        // Validate signup
+        if (formData.password !== formData.confirmPassword) {
+          toast.error('Passwords do not match', {
+            description: 'Please ensure both passwords are the same.',
+          });
+          return;
+        }
+
+        if (formData.password.length < 6) {
+          toast.error('Password too short', {
+            description: 'Password must be at least 6 characters long.',
+          });
+          return;
+        }
+
+        await signup({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          password: formData.password,
+          role: formData.role,
+          class: formData.class,
+        });
+
+        toast.success('Account Created', {
+          description: 'Your account has been created successfully. Welcome to Gupta\'s Classes!',
+        });
+        analytics.trackEvent('signup_success', 'conversion', 'auth-modal');
+      }
+
+      // Reset form and close modal
+      setTimeout(() => {
+        setIsOpen(false);
+        setFormData({
+          email: '',
+          password: '',
+          confirmPassword: '',
+          name: '',
+          phone: '',
+          role: 'student',
+          class: '9-10',
+        });
+      }, 1500);
+    } catch (error: any) {
+      toast.error('Authentication Error', {
+        description: error.message || 'An error occurred. Please try again.',
       });
-      analytics.trackEvent('login_success', 'conversion', 'auth-modal');
-    } else {
-      toast.success('Account Created', {
-        description: 'Your account has been created successfully. Welcome to Gupta\'s Classes!',
-      });
-      analytics.trackEvent('signup_success', 'conversion', 'auth-modal');
+      analytics.trackEvent('auth_error', 'error', activeTab);
     }
-    
-    // Reset form and close modal
-    setTimeout(() => {
-      setIsOpen(false);
-      setFormData({
-        email: '',
-        password: '',
-        confirmPassword: '',
-        fullName: '',
-      });
-    }, 1500);
   };
 
   return (
@@ -123,18 +161,62 @@ export function AuthModal({ buttonText = 'Enroll Now', buttonClassName = '', adI
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="auth-form">
                   {activeTab === 'signup' && (
-                    <div className="form-group">
-                      <label htmlFor="fullName">Full Name</label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        placeholder="Enter your full name"
-                        value={formData.fullName}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </div>
+                    <>
+                      <div className="form-group">
+                        <label htmlFor="name">Full Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          placeholder="Enter your full name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="phone">Phone Number</label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          placeholder="Enter your phone number"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          required
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="role">Role</label>
+                        <select
+                          id="role"
+                          name="role"
+                          value={formData.role}
+                          onChange={handleInputChange}
+                        >
+                          <option value="student">Student</option>
+                          <option value="teacher">Teacher</option>
+                          <option value="admin">Admin</option>
+                        </select>
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="class">Class</label>
+                        <select
+                          id="class"
+                          name="class"
+                          value={formData.class}
+                          onChange={handleInputChange}
+                        >
+                          <option value="6-8">Class 6-8</option>
+                          <option value="9-10">Class 9-10</option>
+                          <option value="11-12">Class 11-12</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </>
                   )}
 
                   <div className="form-group">
@@ -184,8 +266,8 @@ export function AuthModal({ buttonText = 'Enroll Now', buttonClassName = '', adI
                     </div>
                   )}
 
-                  <button type="submit" className="auth-submit-button">
-                    {activeTab === 'login' ? 'Login' : 'Sign Up'}
+                  <button type="submit" className="auth-submit-button" disabled={isLoading}>
+                    {isLoading ? 'Processing...' : (activeTab === 'login' ? 'Login' : 'Sign Up')}
                   </button>
                 </form>
 
